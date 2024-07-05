@@ -19,4 +19,3 @@ class TestSoundex(unittest.TestCase):
     
 if __name__ == '__main__':
     unittest.main() 
-    unittest.test_simple_cases()
