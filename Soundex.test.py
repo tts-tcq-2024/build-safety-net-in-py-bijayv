@@ -5,7 +5,8 @@ class TestSoundex(unittest.TestCase):
 
     def test_empty_string(self):
         self.assertEqual(generate_soundex(""), "")
-
+        unittest.test_single_character()
+        
     def test_single_character(self):
         self.assertEqual(generate_soundex("A"), "A000")
     def test_simple_cases(self):
@@ -18,6 +19,5 @@ class TestSoundex(unittest.TestCase):
 
     
 if __name__ == '__main__':
-    unittest.main()
-    unittest.test_single_character()
+    unittest.main() 
     unittest.test_simple_cases()
