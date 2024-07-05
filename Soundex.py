@@ -9,22 +9,22 @@ def get_soundex_code(c):
         'R': '6'
     }
     return mapping.get(c, '0')  # Default to '0' for non-mapped characters
-def abc(name):
-    soundex = name[0].upper()
-    prev_code = get_soundex_code(soundex)
-
+def abc(name,prev_code):
+    
+    prev_code = prev_code
     for char in name[1:]:
-        code = get_soundex_code(char)
-        if code != '0' and code != prev_code:
-            soundex += code
-            prev_code = code
+        if get_soundex_code(char) != '0' and get_soundex_code(char) != prev_code:
+            soundex += get_soundex_code(char)
+            prev_code = get_soundex_code(char)
     return soundex
 
 def generate_soundex(name):
     if not name:
         return ""
     else:
-        soundex = abc(name)
+        s = name[0].upper()
+        prev_code = get_soundex_code(soundex)
+        soundex = s + abc(name,prev_code)
         if len(soundex) > 4:
             soundex = soundex[:4]
 
