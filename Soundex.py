@@ -28,7 +28,7 @@ def generate_soundex(name):
         return ""
     else:
         s = name[0].upper()
-        prev_code = get_soundex_code(s)
+        prev_code = get_soundex_code(s,7)
         soundex = s + abc(name,prev_code)
         if len(soundex) > 4:
             soundex = soundex[:4]
