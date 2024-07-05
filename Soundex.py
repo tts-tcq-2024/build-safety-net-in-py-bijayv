@@ -15,7 +15,7 @@ def abc(name):
 
     for char in name[1:]:
         code = get_soundex_code(char)
-        if code != '0' and code != prev_code and len(soundex) != 4:
+        if code != '0' and code != prev_code:
             soundex += code
             prev_code = code
     return soundex
@@ -25,6 +25,8 @@ def generate_soundex(name):
         return ""
     else:
         soundex = abc(name)
+        if len(soundex) > 4:
+            soundex = soundex[:4]
 
     # Start with the first letter (capitalized)
 
