@@ -9,7 +9,10 @@ def get_soundex_code(c,prev_code):
         'R': '6'
     }
     ch =  mapping.get(c, '0')  # Default to '0' for non-mapped characters
-    if ch != '0' and ch != prev_code:
+    if (prev_code == 7):
+        return ch
+        break
+    elif ch != '0' and ch != prev_code:
         return ch
     else:
         return ""
