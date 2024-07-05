@@ -12,10 +12,9 @@ def get_soundex_code(c,prev_code):
     if (prev_code == 7):
         return ch
         break
-    elif ch != '0' and ch != prev_code:
+    if ch != '0' and ch != prev_code:
         return ch
-    else:
-        return ""
+    return ""
     
 def abc(name,prev_code):
     soundex = ""
