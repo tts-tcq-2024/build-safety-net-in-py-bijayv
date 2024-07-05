@@ -10,17 +10,17 @@ def get_soundex_code(c):
     }
     return mapping.get(c, '0')  # Default to '0' for non-mapped characters
 
-def df(char,prev_code):
+def comparison(char,prev_code):
     ch = get_soundex_code(char)
     if ch != '0' and ch != prev_code:
         return ch
     else:
         return ""
     
-def abc(name,prev_code):
+def num_map(name,prev_code):
     soundex = ""
     for char in name[1:]:
-        code = df(char,prev_code)
+        code = comparison(char,prev_code)
         if(code != ""):
             soundex += code
             prev_code = code
@@ -30,9 +30,9 @@ def generate_soundex(name):
     if not name:
         return ""
     else:
-        s = name[0].upper()
-        prev_code = get_soundex_code(s)
-        soundex = s + abc(name,prev_code)
+        soundex = name[0].upper()
+        prev_code = get_soundex_code(soundex)
+        soundex = soundex + num_map(name,prev_code)
         if len(soundex) > 4:
             soundex = soundex[:4]
 
