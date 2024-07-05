@@ -10,8 +10,7 @@ def get_soundex_code(c):
     }
     return mapping.get(c, '0')  # Default to '0' for non-mapped characters
 
-def comparison(char,prev_code):
-    ch = get_soundex_code(char)
+def comparison(ch,prev_code):
     if ch != '0' and ch != prev_code:
         return ch
     else:
@@ -20,7 +19,8 @@ def comparison(char,prev_code):
 def num_map(name,prev_code):
     soundex = ""
     for char in name[1:]:
-        code = comparison(char,prev_code)
+        ch = get_soundex_code(char)
+        code = comparison(ch,prev_code)
         if(code != ""):
             soundex += code
             prev_code = code
