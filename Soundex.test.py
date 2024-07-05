@@ -5,7 +5,8 @@ class TestSoundex(unittest.TestCase):
 
     def test_empty_string(self):
         self.assertEqual(generate_soundex(""), "")
-        unittest.test_single_character()
+        test_single_character()
+        test_simple_cases()
         
     def test_single_character(self):
         self.assertEqual(generate_soundex("A"), "A000")
